@@ -1,0 +1,40 @@
+services:
+  web:
+    depends_on:
+      - api
+    build:
+      context: ./frontend
+    environment:
+      API_URL:
+    ports:
+      - 5173:5173
+    develop:
+      watch:
+        - path: ./frontend/package.json
+          action: rebuild
+        - path: ./frontend/package-lock.json
+          action: rebuild
+        - path: ./frontend
+          target: /app
+          action: sync
+  api:
+    build:
+      context: ./backend
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    develop:
+      watch:
+        - path: ./backend/package.json
+          action: rebuild
+        - path: ./backend/package-lock.json
+          action: rebuild
+        - path: ./backend
+          target: /app
+          action: sync
+
+
+# define the volumes to be used by the services
+volumes:
+  pern:
