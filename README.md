@@ -32,5 +32,5 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/pern-crud-app.git
+   git clone https://github.com/mustafa-j-wardeh17/pern-crud.git
    cd pern-crud-app
