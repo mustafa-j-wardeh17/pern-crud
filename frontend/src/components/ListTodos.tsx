@@ -41,7 +41,7 @@ const ListTodos = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {todos.map((todo: any) => (
+                    {todos.length > 0 && todos.map((todo: any) => (
                         <tr key={todo.todo_id} className="border-b-[1px] border-gray-200 h-[50px]">
                             <td className="px-4 py-2">{todo.description}</td>
                             <td className="px-4 py-2">

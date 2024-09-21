@@ -3,10 +3,10 @@ import Pool from 'pg'
 dotenv.config()
 
 export const pool = new Pool.Pool({
-    user: 'postgres',
-    password: process.env.POSTGRESQL_PASSWORD,
-    host: "localhost",
-    port: 5432,
-    database: "perntodo"
+    connectionString: process.env.DATABASE_URL
 })
 
+// Optional: Handle connection errors
+pool.on('error', (err) => {
+    console.error('Unexpected error on idle client', err);
+});

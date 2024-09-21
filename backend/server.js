@@ -87,5 +87,8 @@ app.delete('/todos/:id', async (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
+    pool.connect()
+        .then(() => console.log('Database connected successfully'))
+        .catch(err => console.error('Error connecting to the database', err));
     console.log('Server connected successfully on port=>', process.env.PORT)
 })
